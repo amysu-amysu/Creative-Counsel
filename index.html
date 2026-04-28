@@ -328,8 +328,16 @@
       cursor: pointer;
     }
 
+    /* AI disclaimer shown just above the generate button */
+    .ai-disclaimer {
+      font-size: 0.72rem;
+      color: var(--warm-gray);
+      font-weight: 300;
+      line-height: 1.5;
+      margin-top: 0.25rem;
+    }
+
     .submit-btn {
-      margin-top: 0.5rem;
       padding: 1rem 2rem;
       background: var(--charcoal);
       color: var(--cream);
@@ -565,7 +573,7 @@
       </div>
       <div class="stat-item">
         <div class="stat-number">$6B</div>
-        <div class="stat-label">lost by US freelancers every year to unpaid work, according to Upwork</div>
+        <div class="stat-label">lost by US freelancers every year to unpaid work (Upwork)</div>
       </div>
     </div>
 
@@ -603,7 +611,7 @@
             <li>Scope of work and deliverables</li>
             <li>Usage rights and licensing terms</li>
             <li>Revision limits and approval process</li>
-            <li>What happens if something unexpected prevents either party from completing the project</li>
+            <li>Preparation for unexpected events that prevent either party from completing the project</li>
           </ul>
         </div>
       </div>
@@ -685,6 +693,9 @@
           </div>
 
           <div class="error-msg" id="errorMsg"></div>
+
+          <!-- AI disclaimer shown just above the generate button -->
+          <p class="ai-disclaimer">Contracts are AI-generated. Creative Counsel is not a law firm and this is not legal advice.</p>
 
           <button type="submit" class="submit-btn" id="submitBtn">Generate my contract</button>
         </form>
@@ -799,7 +810,7 @@ Special situations to protect against: ${specialTerms || 'none specified, includ
 
 Generate a complete, professional contract ready to send to the client.`;
 
-      // Show loading state
+      // Show loading state, hide form
       document.getElementById('submitBtn').disabled = true;
       document.getElementById('errorMsg').style.display = 'none';
       document.getElementById('loadingState').style.display = 'block';
@@ -823,7 +834,7 @@ Generate a complete, professional contract ready to send to the client.`;
         const data = await response.json();
         const contractText = data.content[0].text;
 
-        // Display the contract
+        // Display the contract and hide the form sections
         document.getElementById('contractOutput').textContent = contractText;
         document.getElementById('loadingState').style.display = 'none';
         document.getElementById('formSection').style.display = 'none';
@@ -832,7 +843,7 @@ Generate a complete, professional contract ready to send to the client.`;
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
       } catch (error) {
-        // Show error, restore form
+        // Show error message and restore the form
         document.getElementById('loadingState').style.display = 'none';
         document.querySelector('.form-right form').style.display = 'flex';
         document.getElementById('submitBtn').disabled = false;
