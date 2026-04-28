@@ -673,13 +673,10 @@ Generate a complete, professional contract ready to send to the client.`;
   document.querySelector('.form-right form').style.display = 'none';
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('https://creative-counsel-api.amy-yue-su.workers.dev/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': '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',
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true'
       },
       body: JSON.stringify({
         model: 'claude-haiku-4-5-20251001',
