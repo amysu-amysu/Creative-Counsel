@@ -1,661 +1,793 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creative Counsel — Contracts for Creatives</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Counsel — Contracts for Creatives</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-  :root {
-    --cream: #FAF8F5;
-    --warm-white: #FFFEFB;
-    --concrete: #E8E5E0;
-    --stone: #C4BFB8;
-    --charcoal: #2A2825;
-    --warm-gray: #6B6560;
-    --sand: #C9B99A;
-    --sand-light: #EDE5D8;
-    --sand-dark: #8C7A62;
-    --accent: #3D3530;
-  }
+  <style>
+    /* ============================================================
+       RESET & ROOT VARIABLES
+    ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--charcoal);
-    min-height: 100vh;
-    font-weight: 300;
-  }
+    :root {
+      --cream: #FAF8F5;
+      --warm-white: #FFFEFB;
+      --concrete: #E8E5E0;
+      --stone: #C4BFB8;
+      --charcoal: #2A2825;
+      --warm-gray: #6B6560;
+      --sand: #C9B99A;
+      --sand-light: #EDE5D8;
+      --sand-dark: #8C7A62;
+      --accent: #3D3530;
+    }
 
-  /* NAV */
-  nav {
-    padding: 2rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 0.5px solid var(--concrete);
-    background: var(--warm-white);
-  }
+    /* ============================================================
+       BASE
+    ============================================================ */
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      min-height: 100vh;
+      font-weight: 300;
+    }
 
-  .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    color: var(--charcoal);
-  }
+    /* ============================================================
+       NAV
+    ============================================================ */
+    nav {
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 0.5px solid var(--concrete);
+      background: var(--warm-white);
+    }
 
-  .logo span {
-    font-style: italic;
-    color: var(--sand-dark);
-  }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+    }
 
-  nav p {
-    font-size: 0.8rem;
-    color: var(--warm-gray);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 400;
-  }
+    .logo span {
+      font-style: italic;
+      color: var(--sand-dark);
+    }
 
-  /* HERO */
-  .hero {
-    padding: 6rem 4rem 4rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
+    nav p {
+      font-size: 0.8rem;
+      color: var(--warm-gray);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
 
-  .eyebrow {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--sand-dark);
-    font-weight: 400;
-    margin-bottom: 1.5rem;
-  }
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      padding: 6rem 4rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 400;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    margin-bottom: 1.5rem;
-    color: var(--charcoal);
-  }
+    .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sand-dark);
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
 
-  .hero h1 em {
-    font-style: italic;
-    color: var(--sand-dark);
-  }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      color: var(--charcoal);
+    }
 
-  .hero-sub {
-    font-size: 1.05rem;
-    color: var(--warm-gray);
-    line-height: 1.7;
-    max-width: 600px;
-    font-weight: 300;
-    margin-bottom: 3rem;
-  }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--sand-dark);
+    }
 
-  /* STATS BAR */
-  .stats {
-    display: flex;
-    gap: 3rem;
-    padding: 2rem 0;
-    border-top: 0.5px solid var(--concrete);
-    border-bottom: 0.5px solid var(--concrete);
-    margin-bottom: 5rem;
-    flex-wrap: wrap;
-  }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--warm-gray);
+      line-height: 1.7;
+      max-width: 600px;
+      font-weight: 300;
+      margin-bottom: 3rem;
+    }
 
-  .stat-item {}
+    /* ============================================================
+       STATS
+    ============================================================ */
+    .stats {
+      display: flex;
+      gap: 3rem;
+      padding: 2rem 0;
+      border-top: 0.5px solid var(--concrete);
+      border-bottom: 0.5px solid var(--concrete);
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
 
-  .stat-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 400;
-    color: var(--charcoal);
-    letter-spacing: -0.02em;
-  }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      letter-spacing: -0.02em;
+    }
 
-  .stat-label {
-    font-size: 0.78rem;
-    color: var(--warm-gray);
-    margin-top: 0.25rem;
-    line-height: 1.4;
-    max-width: 180px;
-    font-weight: 300;
-  }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--warm-gray);
+      margin-top: 0.25rem;
+      line-height: 1.4;
+      max-width: 180px;
+      font-weight: 300;
+    }
 
-  /* FORM SECTION */
-  .form-section {
-    background: var(--warm-white);
-    border-top: 0.5px solid var(--concrete);
-    border-bottom: 0.5px solid var(--concrete);
-    padding: 5rem 4rem;
-  }
+    /* ============================================================
+       BENEFITS
+    ============================================================ */
+    .benefits {
+      margin-bottom: 5rem;
+    }
 
-  .form-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-  }
+    .benefits h3 {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sand-dark);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
 
-  .form-left h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 400;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-  }
+    .benefits ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
 
-  .form-left p {
-    font-size: 0.9rem;
-    color: var(--warm-gray);
-    line-height: 1.7;
-    font-weight: 300;
-    margin-bottom: 2rem;
-  }
+    .benefits ul li {
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      font-weight: 300;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      line-height: 1.5;
+    }
 
-  .what-you-get {
-    background: var(--sand-light);
-    padding: 1.5rem;
-    border-radius: 2px;
-  }
+    .benefits ul li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: var(--sand-dark);
+      border-radius: 50%;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
 
-  .what-you-get h3 {
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--sand-dark);
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
+    /* ============================================================
+       FORM SECTION
+    ============================================================ */
+    .form-section {
+      background: var(--warm-white);
+      border-top: 0.5px solid var(--concrete);
+      border-bottom: 0.5px solid var(--concrete);
+      padding: 5rem 4rem;
+    }
 
-  .what-you-get ul {
-    list-style: none;
-  }
+    .form-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+    }
 
-  .what-you-get ul li {
-    font-size: 0.85rem;
-    color: var(--charcoal);
-    padding: 0.4rem 0;
-    border-bottom: 0.5px solid var(--stone);
-    font-weight: 300;
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
+    .form-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
 
-  .what-you-get ul li:last-child { border-bottom: none; }
+    .form-left p {
+      font-size: 0.9rem;
+      color: var(--warm-gray);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
 
-  .what-you-get ul li::before {
-    content: '';
-    width: 4px;
-    height: 4px;
-    background: var(--sand-dark);
-    border-radius: 50%;
-    margin-top: 7px;
-    flex-shrink: 0;
-  }
+    .what-you-get {
+      background: var(--sand-light);
+      padding: 1.5rem;
+      border-radius: 2px;
+    }
 
-  /* FORM */
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
+    .what-you-get h3 {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sand-dark);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
 
-  .field-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
+    .what-you-get ul {
+      list-style: none;
+    }
 
-  .field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
+    .what-you-get ul li {
+      font-size: 0.85rem;
+      color: var(--charcoal);
+      padding: 0.4rem 0;
+      border-bottom: 0.5px solid var(--stone);
+      font-weight: 300;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
 
-  .field.full { grid-column: 1 / -1; }
+    .what-you-get ul li:last-child {
+      border-bottom: none;
+    }
 
-  label {
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    font-weight: 500;
-  }
+    .what-you-get ul li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      background: var(--sand-dark);
+      border-radius: 50%;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
 
-  input, select, textarea {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 300;
-    color: var(--charcoal);
-    background: var(--cream);
-    border: 0.5px solid var(--stone);
-    padding: 0.75rem 1rem;
-    border-radius: 2px;
-    outline: none;
-    transition: border-color 0.2s;
-    width: 100%;
-    appearance: none;
-  }
+    /* ============================================================
+       FORM FIELDS
+    ============================================================ */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
 
-  input:focus, select:focus, textarea:focus {
-    border-color: var(--sand-dark);
-  }
+    .field-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
 
-  textarea {
-    resize: vertical;
-    min-height: 80px;
-    line-height: 1.6;
-  }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
 
-  select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C7A62' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    padding-right: 2.5rem;
-    cursor: pointer;
-  }
+    label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      font-weight: 500;
+    }
 
-  .submit-btn {
-    margin-top: 0.5rem;
-    padding: 1rem 2rem;
-    background: var(--charcoal);
-    color: var(--cream);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-  }
+    input, select, textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      background: var(--cream);
+      border: 0.5px solid var(--stone);
+      padding: 0.75rem 1rem;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+      appearance: none;
+    }
 
-  .submit-btn:hover { background: var(--accent); }
-  .submit-btn:active { transform: scale(0.99); }
-  .submit-btn:disabled { background: var(--stone); cursor: not-allowed; }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--sand-dark);
+    }
 
-  /* LOADING */
-  .loading-state {
-    display: none;
-    text-align: center;
-    padding: 3rem 0;
-  }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+      line-height: 1.6;
+    }
 
-  .loading-state p {
-    font-size: 0.85rem;
-    color: var(--warm-gray);
-    font-style: italic;
-    margin-top: 1rem;
-  }
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C7A62' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
 
-  .spinner {
-    width: 32px;
-    height: 32px;
-    border: 1.5px solid var(--concrete);
-    border-top-color: var(--sand-dark);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin: 0 auto;
-  }
+    .submit-btn {
+      margin-top: 0.5rem;
+      padding: 1rem 2rem;
+      background: var(--charcoal);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
 
-  @keyframes spin { to { transform: rotate(360deg); } }
+    .submit-btn:hover { background: var(--accent); }
+    .submit-btn:active { transform: scale(0.99); }
+    .submit-btn:disabled { background: var(--stone); cursor: not-allowed; }
 
-  /* OUTPUT */
-  .output-section {
-    display: none;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 5rem 4rem;
-  }
+    /* ============================================================
+       LOADING STATE
+    ============================================================ */
+    .loading-state {
+      display: none;
+      text-align: center;
+      padding: 3rem 0;
+    }
 
-  .output-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 0.5px solid var(--concrete);
-  }
+    .loading-state p {
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      font-style: italic;
+      margin-top: 1rem;
+    }
 
-  .output-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-  }
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 1.5px solid var(--concrete);
+      border-top-color: var(--sand-dark);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto;
+    }
 
-  .output-header p {
-    font-size: 0.8rem;
-    color: var(--warm-gray);
-    margin-top: 0.3rem;
-    font-weight: 300;
-  }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-  .btn-row {
-    display: flex;
-    gap: 0.75rem;
-  }
+    /* ============================================================
+       OUTPUT SECTION
+    ============================================================ */
+    .output-section {
+      display: none;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 4rem;
+    }
 
-  .btn-outline {
-    padding: 0.6rem 1.2rem;
-    border: 0.5px solid var(--stone);
-    background: transparent;
-    color: var(--charcoal);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-    font-weight: 400;
-  }
+    .output-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 0.5px solid var(--concrete);
+    }
 
-  .btn-outline:hover {
-    background: var(--sand-light);
-    border-color: var(--sand);
-  }
+    .output-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
 
-  .contract-body {
-    background: var(--warm-white);
-    border: 0.5px solid var(--concrete);
-    padding: 4rem;
-    border-radius: 2px;
-    font-size: 0.9rem;
-    line-height: 1.9;
-    color: var(--charcoal);
-    white-space: pre-wrap;
-    font-weight: 300;
-  }
+    .output-header p {
+      font-size: 0.8rem;
+      color: var(--warm-gray);
+      margin-top: 0.3rem;
+      font-weight: 300;
+    }
 
-  .disclaimer {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: var(--sand-light);
-    border-left: 2px solid var(--sand);
-    font-size: 0.78rem;
-    color: var(--warm-gray);
-    line-height: 1.6;
-    font-weight: 300;
-  }
+    .btn-row {
+      display: flex;
+      gap: 0.75rem;
+    }
 
-  .start-over {
-    margin-top: 2rem;
-    text-align: center;
-  }
+    .btn-outline {
+      padding: 0.6rem 1.2rem;
+      border: 0.5px solid var(--stone);
+      background: transparent;
+      color: var(--charcoal);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      font-weight: 400;
+    }
 
-  .start-over button {
-    background: none;
-    border: none;
-    color: var(--warm-gray);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.82rem;
-    cursor: pointer;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    font-weight: 300;
-  }
+    .btn-outline:hover {
+      background: var(--sand-light);
+      border-color: var(--sand);
+    }
 
-  .start-over button:hover { color: var(--charcoal); }
+    .contract-body {
+      background: var(--warm-white);
+      border: 0.5px solid var(--concrete);
+      padding: 4rem;
+      border-radius: 2px;
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--charcoal);
+      white-space: pre-wrap;
+      font-weight: 300;
+    }
 
-  /* ERROR */
-  .error-msg {
-    display: none;
-    background: #FDF0F0;
-    border: 0.5px solid #E8BFBF;
-    padding: 1rem 1.25rem;
-    border-radius: 2px;
-    font-size: 0.85rem;
-    color: #8B3333;
-    margin-top: 1rem;
-    font-weight: 300;
-  }
+    .disclaimer {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--sand-light);
+      border-left: 2px solid var(--sand);
+      font-size: 0.78rem;
+      color: var(--warm-gray);
+      line-height: 1.6;
+      font-weight: 300;
+    }
 
-  /* FOOTER */
-  footer {
-    padding: 3rem 4rem;
-    border-top: 0.5px solid var(--concrete);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    .start-over {
+      margin-top: 2rem;
+      text-align: center;
+    }
 
-  footer p {
-    font-size: 0.78rem;
-    color: var(--warm-gray);
-    font-weight: 300;
-  }
+    .start-over button {
+      background: none;
+      border: none;
+      color: var(--warm-gray);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 300;
+    }
 
-  footer a {
-    color: var(--sand-dark);
-    text-decoration: none;
-    font-size: 0.78rem;
-  }
+    .start-over button:hover { color: var(--charcoal); }
 
-  footer a:hover { text-decoration: underline; }
+    /* ============================================================
+       ERROR MESSAGE
+    ============================================================ */
+    .error-msg {
+      display: none;
+      background: #FDF0F0;
+      border: 0.5px solid #E8BFBF;
+      padding: 1rem 1.25rem;
+      border-radius: 2px;
+      font-size: 0.85rem;
+      color: #8B3333;
+      margin-top: 1rem;
+      font-weight: 300;
+    }
 
-  @media (max-width: 768px) {
-    nav { padding: 1.5rem 1.5rem; }
-    .hero { padding: 3rem 1.5rem 2rem; }
-    .form-section { padding: 3rem 1.5rem; }
-    .form-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .field-group { grid-template-columns: 1fr; }
-    .stats { gap: 2rem; }
-    .output-section { padding: 3rem 1.5rem; }
-    .contract-body { padding: 2rem; }
-    .output-header { flex-direction: column; gap: 1rem; }
-    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
-  }
-</style>
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      padding: 3rem 4rem;
+      border-top: 0.5px solid var(--concrete);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--warm-gray);
+      font-weight: 300;
+    }
+
+    footer a {
+      color: var(--sand-dark);
+      text-decoration: none;
+      font-size: 0.78rem;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 768px) {
+      nav { padding: 1.5rem 1.5rem; }
+      .hero { padding: 3rem 1.5rem 2rem; }
+      .form-section { padding: 3rem 1.5rem; }
+      .form-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .field-group { grid-template-columns: 1fr; }
+      .stats { gap: 2rem; }
+      .output-section { padding: 3rem 1.5rem; }
+      .contract-body { padding: 2rem; }
+      .output-header { flex-direction: column; gap: 1rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-  <div class="logo">Creative <span>Counsel</span></div>
-  <p>AI-powered contracts for creatives</p>
-</nav>
+  <!-- ============================================================
+       NAV
+  ============================================================ -->
+  <nav>
+    <div class="logo">Creative <span>Counsel</span></div>
+    <p>AI-powered contracts for creatives</p>
+  </nav>
 
-<div class="hero" id="heroSection">
-  <p class="eyebrow">Know your worth. Protect your work.</p>
-  <h1>Your gig deserves a <em>real</em> contract.</h1>
-  <p class="hero-sub">
-    85% of freelancers experience late or missed payments. Most have nothing in writing to protect them. Creative Counsel generates professional, enforceable contracts for photographers, musicians, models, videographers, and production companies — in seconds.
-  </p>
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <div class="hero" id="heroSection">
+    <p class="eyebrow">Know your worth. Protect your work.</p>
+    <h1>Get paid for your talent, <em>on time.</em></h1>
+    <p class="hero-sub">
+      Your skills deserve a real contract. Creative Counsel generates professional, tailored agreements for photographers, musicians, models, videographers, and production companies in seconds, so you can focus on the work, not the follow-up.
+    </p>
 
-  <div class="stats">
-    <div class="stat-item">
-      <div class="stat-number">85%</div>
-      <div class="stat-label">of freelancers experience late payments at least some of the time</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">21%</div>
-      <div class="stat-label">are paid late or not at all more than half the time</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">Net 90</div>
-      <div class="stat-label">payment terms mean you may wait 3 months after your gig to see a dollar</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">$0</div>
-      <div class="stat-label">what most creatives have in writing when a client shows up 5 hours late</div>
-    </div>
-  </div>
-</div>
-
-<div class="form-section" id="formSection">
-  <div class="form-inner">
-    <div class="form-left">
-      <h2>Tell us about your gig.</h2>
-      <p>
-        Answer a few questions and we will generate a professional contract tailored to your specific situation. No legal jargon you did not ask for. No generic templates that miss the details that actually matter.
-      </p>
-      <div class="what-you-get">
-        <h3>What your contract will include</h3>
-        <ul>
-          <li>Payment terms and deposit requirements</li>
-          <li>Late payment and cancellation penalties</li>
-          <li>Client arrival and timeline expectations</li>
-          <li>Scope of work and deliverables</li>
-          <li>Usage rights and licensing terms</li>
-          <li>Revision and approval processes</li>
-          <li>Force majeure and dispute resolution</li>
-        </ul>
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-number">85%</div>
+        <div class="stat-label">of freelancers experience late or missed payments at least some of the time</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">21%</div>
+        <div class="stat-label">are paid late or not at all more than half the time</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$6B</div>
+        <div class="stat-label">lost by US freelancers every year to unpaid work, according to Upwork</div>
       </div>
     </div>
 
-    <div class="form-right">
-      <form id="contractForm">
-        <div class="field">
-          <label for="creativeType">I am a</label>
-          <select id="creativeType" required>
-            <option value="">Select your creative type</option>
-            <option value="photographer">Photographer</option>
-            <option value="videographer">Videographer / Production Company</option>
-            <option value="musician">Musician / Performer</option>
-            <option value="model">Model</option>
-            <option value="creative director">Creative Director / Stylist</option>
-            <option value="graphic designer">Graphic Designer / Illustrator</option>
-            <option value="other creative">Other Creative</option>
-          </select>
-        </div>
+    <!-- Benefits -->
+    <div class="benefits">
+      <h3>A good contract helps you</h3>
+      <ul>
+        <li>Get paid on time, with clear terms your client agreed to in writing before the work begins</li>
+        <li>Protect yourself when a client shows up late, cancels last minute, or changes the scope mid-project</li>
+        <li>Keep ownership of your creative work unless you explicitly choose to transfer it</li>
+        <li>Set boundaries around revisions, reshoots, and additional requests that were not in the original agreement</li>
+        <li>Have something real to stand behind if a client tries to dispute payment or use your work without permission</li>
+      </ul>
+    </div>
+  </div>
 
-        <div class="field-group">
-          <div class="field">
-            <label for="yourName">Your name</label>
-            <input type="text" id="yourName" placeholder="Amy Su" required />
-          </div>
-          <div class="field">
-            <label for="clientName">Client name</label>
-            <input type="text" id="clientName" placeholder="Brand or person name" required />
-          </div>
-        </div>
+  <!-- ============================================================
+       FORM SECTION
+  ============================================================ -->
+  <div class="form-section" id="formSection">
+    <div class="form-inner">
 
-        <div class="field">
-          <label for="projectType">Type of project</label>
-          <input type="text" id="projectType" placeholder="e.g. brand campaign shoot, live performance, music video" required />
+      <!-- Left column: context and what you get -->
+      <div class="form-left">
+        <h2>Tell us about your gig.</h2>
+        <p>
+          Answer a few questions and we will generate a professional contract tailored to your specific situation. No legal jargon you did not ask for. No generic templates that miss the details that actually matter.
+        </p>
+        <div class="what-you-get">
+          <h3>What your contract will include</h3>
+          <ul>
+            <li>Payment terms and deposit requirements</li>
+            <li>Late payment fees and cancellation penalties</li>
+            <li>Client arrival and timeline expectations</li>
+            <li>Scope of work and deliverables</li>
+            <li>Usage rights and licensing terms</li>
+            <li>Revision limits and approval process</li>
+            <li>What happens if something unexpected prevents either party from completing the project</li>
+          </ul>
         </div>
+      </div>
 
-        <div class="field-group">
-          <div class="field">
-            <label for="projectDate">Date of project</label>
-            <input type="date" id="projectDate" required />
-          </div>
-          <div class="field">
-            <label for="rate">Your rate</label>
-            <input type="text" id="rate" placeholder="e.g. $2,500 flat fee" required />
-          </div>
-        </div>
+      <!-- Right column: the form -->
+      <div class="form-right">
+        <form id="contractForm">
 
-        <div class="field-group">
           <div class="field">
-            <label for="depositAmount">Deposit required</label>
-            <input type="text" id="depositAmount" placeholder="e.g. 50% upfront" />
-          </div>
-          <div class="field">
-            <label for="paymentTerms">Payment terms</label>
-            <select id="paymentTerms">
-              <option value="due on delivery">Due on delivery</option>
-              <option value="Net 7">Net 7 (7 days after delivery)</option>
-              <option value="Net 14">Net 14 (14 days after delivery)</option>
-              <option value="Net 30">Net 30 (30 days after delivery)</option>
+            <label for="creativeType">I am a</label>
+            <select id="creativeType" required>
+              <option value="">Select your creative type</option>
+              <option value="photographer">Photographer</option>
+              <option value="videographer">Videographer / Production Company</option>
+              <option value="musician">Musician / Performer</option>
+              <option value="model">Model</option>
+              <option value="creative director">Creative Director / Stylist</option>
+              <option value="graphic designer">Graphic Designer / Illustrator</option>
+              <option value="other creative">Other Creative</option>
             </select>
           </div>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="yourName">Full name</label>
+              <input type="text" id="yourName" placeholder="Jordan Smith" required />
+            </div>
+            <div class="field">
+              <label for="businessName">Studio or business name</label>
+              <input type="text" id="businessName" placeholder="Smith Creative Studio" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="clientName">Client name</label>
+            <input type="text" id="clientName" placeholder="Brand or person you are working with" required />
+          </div>
+
+          <div class="field">
+            <label for="projectType">Type of project</label>
+            <input type="text" id="projectType" placeholder="E.g. brand campaign shoot, live performance, music video" required />
+          </div>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="projectDate">Date of project</label>
+              <input type="date" id="projectDate" required />
+            </div>
+            <div class="field">
+              <label for="rate">Your rate</label>
+              <input type="text" id="rate" placeholder="E.g. $2,500 flat fee" required />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="depositAmount">Deposit required</label>
+              <input type="text" id="depositAmount" placeholder="E.g. 50% upfront" />
+            </div>
+            <div class="field">
+              <label for="paymentTerms">Payment terms</label>
+              <select id="paymentTerms">
+                <option value="due on receipt">Due on receipt</option>
+                <option value="Net 7">Net 7 (7 days after delivery)</option>
+                <option value="Net 14">Net 14 (14 days after delivery)</option>
+                <option value="Net 30">Net 30 (30 days after delivery)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="deliverables">Deliverables</label>
+            <textarea id="deliverables" placeholder="What are you delivering? E.g. 50 edited photos, 3-minute final video cut, 60-minute live set"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="specialTerms">Any special situations to protect against?</label>
+            <textarea id="specialTerms" placeholder="E.g. client showed up late before, need a cancellation fee, usage rights concern, exclusivity period"></textarea>
+          </div>
+
+          <div class="error-msg" id="errorMsg"></div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">Generate my contract</button>
+        </form>
+
+        <div class="loading-state" id="loadingState">
+          <div class="spinner"></div>
+          <p>Drafting your contract...</p>
         </div>
+      </div>
 
-        <div class="field">
-          <label for="deliverables">Deliverables</label>
-          <textarea id="deliverables" placeholder="What are you delivering? e.g. 50 edited photos, 3 minute final video cut, 60 minute live set"></textarea>
-        </div>
+    </div>
+  </div>
 
-        <div class="field">
-          <label for="specialTerms">Any special situations to protect against?</label>
-          <textarea id="specialTerms" placeholder="e.g. client showed up late before, need a cancellation fee, usage rights concern, exclusivity period"></textarea>
-        </div>
-
-        <div class="error-msg" id="errorMsg"></div>
-
-        <button type="submit" class="submit-btn" id="submitBtn">Generate my contract</button>
-      </form>
-
-      <div class="loading-state" id="loadingState">
-        <div class="spinner"></div>
-        <p>Drafting your contract...</p>
+  <!-- ============================================================
+       OUTPUT SECTION
+  ============================================================ -->
+  <div class="output-section" id="outputSection">
+    <div class="output-header">
+      <div>
+        <h2>Your contract is ready.</h2>
+        <p>Review carefully before sending. This is a starting point, not legal advice.</p>
+      </div>
+      <div class="btn-row">
+        <button class="btn-outline" onclick="copyContract()">Copy text</button>
+        <button class="btn-outline" onclick="printContract()">Print / Save PDF</button>
       </div>
     </div>
-  </div>
-</div>
 
-<div class="output-section" id="outputSection">
-  <div class="output-header">
-    <div>
-      <h2>Your contract is ready.</h2>
-      <p>Review carefully before sending. This is a starting point — not legal advice.</p>
+    <div class="contract-body" id="contractOutput"></div>
+
+    <div class="disclaimer">
+      Creative Counsel generates contracts as a helpful starting point. This is not legal advice and does not constitute an attorney-client relationship. For high-value or complex engagements, we recommend having a licensed attorney review your agreement before signing.
     </div>
-    <div class="btn-row">
-      <button class="btn-outline" onclick="copyContract()">Copy text</button>
-      <button class="btn-outline" onclick="printContract()">Print / Save PDF</button>
+
+    <div class="start-over">
+      <button onclick="startOver()">Generate a new contract</button>
     </div>
   </div>
 
-  <div class="contract-body" id="contractOutput"></div>
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <p>Creative Counsel — AI-powered contracts for creatives</p>
+    <p>Built by <a href="https://amysu.me" target="_blank">Amy Su</a> &nbsp;|&nbsp; Powered by Claude</p>
+  </footer>
 
-  <div class="disclaimer">
-    Creative Counsel generates contracts as a helpful starting point. This is not legal advice and does not constitute an attorney-client relationship. For high-value or complex engagements, we recommend having a licensed attorney review your agreement before signing.
-  </div>
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ── System prompt sent to Claude for every contract generation ──
+    const SYSTEM_PROMPT = `You are Creative Counsel, an AI assistant that generates professional freelance contracts for independent creative professionals including photographers, videographers, musicians, models, production companies, creative directors, and graphic designers.
 
-  <div class="start-over">
-    <button onclick="startOver()">Generate a new contract</button>
-  </div>
-</div>
-
-<footer>
-  <p>Creative Counsel — AI-powered contracts for creatives</p>
-  <p>Built by <a href="https://amysu.me" target="_blank">Amy Su</a> &nbsp;|&nbsp; Powered by Claude</p>
-</footer>
-
-<script>
-const SYSTEM_PROMPT = `You are Creative Counsel, an AI assistant that generates professional freelance contracts for creative professionals. You write clear, fair, and enforceable contract language that protects creatives from common industry problems: late payments, client no-shows, scope creep, unpaid work, and unclear usage rights.
+You write clear, fair, and enforceable contract language that protects creatives from common industry problems: late payments, client no-shows, scope creep, late arrivals, unpaid work, and unclear usage rights.
 
 Your contracts should:
-- Be written in plain, professional English that both parties can understand
-- Include all standard clauses relevant to the creative type and project
-- Be firm but fair — protecting the creative without being aggressive
-- Always include: payment terms, deposit requirements, cancellation/late arrival penalties, deliverables, usage rights, revision limits, and dispute resolution
-- Reference specific details the user provides (names, rates, dates, project type)
-- Feel like a real document a professional would actually send to a client
+- Be written in plain, professional English that both parties can easily understand — no intimidating legal jargon
+- Be tailored to the specific creative type and project (a model contract looks different from a musician contract)
+- Be firm but fair — protecting the creative without being aggressive toward the client
+- Always include all of the following sections, adapted for the creative type:
+  1. PARTIES — Full names of both parties, business name if provided, and date of agreement
+  2. SCOPE OF WORK — Exactly what is being delivered, when, and how
+  3. COMPENSATION — Total fee, deposit amount and due date, remaining balance and due date, accepted payment methods, late payment fee (suggest 1.5% per month on overdue balances)
+  4. CANCELLATION POLICY — What happens if the client cancels, with different terms for short notice vs. advance notice
+  5. CLIENT RESPONSIBILITIES — Arrival time expectations, late arrival penalties (e.g. after 30 minutes a penalty fee applies per hour), approval of final deliverables
+  6. USAGE RIGHTS — Who owns the work, how the client may use it, what platforms, for how long, and whether the creative retains the right to use work in their portfolio
+  7. REVISIONS — How many rounds of revisions are included and what additional revisions cost
+  8. IF PLANS CHANGE — Plain English explanation of what happens if either party cannot complete the project due to illness, emergency, or circumstances outside their control
+  9. DISPUTES — How disagreements will be handled, governing law
+  10. SIGNATURES — Signature blocks for both parties with date lines
 
-Format the contract clearly with section headers in all caps, proper spacing, and signature blocks at the end. Begin with the contract title and party names. Do not include any preamble or explanation — output only the contract itself.`;
+Additional guidance by creative type:
+- For MODELS: Include image approval rights, exclusivity terms if applicable, usage territory (local/national/worldwide), and duration of license
+- For MUSICIANS: Include set length, number of sets, sound check time, equipment responsibilities, and what happens if the event runs over
+- For PHOTOGRAPHERS/VIDEOGRAPHERS: Include delivery timeline, file format, storage/backup responsibility, and whether the creative may display work in their portfolio
+- For PRODUCTION COMPANIES: Include pre-production approval process, client responsibilities around timing and preparation, and late arrival penalties specific to time-sensitive shoots
 
-document.getElementById('contractForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
+Reference the specific details the user provides. Do not include any preamble or explanation — output only the contract itself. Format clearly with section headers in all caps and proper spacing. End with a professional signature block.`;
 
-  const creativeType = document.getElementById('creativeType').value;
-  const yourName = document.getElementById('yourName').value;
-  const clientName = document.getElementById('clientName').value;
-  const projectType = document.getElementById('projectType').value;
-  const projectDate = document.getElementById('projectDate').value;
-  const rate = document.getElementById('rate').value;
-  const depositAmount = document.getElementById('depositAmount').value;
-  const paymentTerms = document.getElementById('paymentTerms').value;
-  const deliverables = document.getElementById('deliverables').value;
-  const specialTerms = document.getElementById('specialTerms').value;
+    // ── Form submission handler ──
+    document.getElementById('contractForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
 
-  const userPrompt = `Generate a professional freelance contract for the following:
+      // Collect form values
+      const creativeType  = document.getElementById('creativeType').value;
+      const yourName      = document.getElementById('yourName').value;
+      const businessName  = document.getElementById('businessName').value;
+      const clientName    = document.getElementById('clientName').value;
+      const projectType   = document.getElementById('projectType').value;
+      const projectDate   = document.getElementById('projectDate').value;
+      const rate          = document.getElementById('rate').value;
+      const depositAmount = document.getElementById('depositAmount').value;
+      const paymentTerms  = document.getElementById('paymentTerms').value;
+      const deliverables  = document.getElementById('deliverables').value;
+      const specialTerms  = document.getElementById('specialTerms').value;
+
+      // Build the user prompt
+      const userPrompt = `Generate a professional freelance contract for the following:
 
 Creative type: ${creativeType}
-Creative professional name: ${yourName}
+Creative professional full name: ${yourName}
+Studio or business name: ${businessName || 'none provided, use individual name only'}
 Client name: ${clientName}
 Project type: ${projectType}
 Project date: ${projectDate}
@@ -663,76 +795,79 @@ Rate: ${rate}
 Deposit required: ${depositAmount || 'not specified, use 50% standard'}
 Payment terms: ${paymentTerms}
 Deliverables: ${deliverables || 'standard deliverables for this creative type'}
-Special situations to protect against: ${specialTerms || 'none specified, include standard protective clauses'}
+Special situations to protect against: ${specialTerms || 'none specified, include standard protective clauses for this creative type'}
 
 Generate a complete, professional contract ready to send to the client.`;
 
-  document.getElementById('submitBtn').disabled = true;
-  document.getElementById('errorMsg').style.display = 'none';
-  document.getElementById('loadingState').style.display = 'block';
-  document.querySelector('.form-right form').style.display = 'none';
+      // Show loading state
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('errorMsg').style.display = 'none';
+      document.getElementById('loadingState').style.display = 'block';
+      document.querySelector('.form-right form').style.display = 'none';
 
-  try {
-    const response = await fetch('https://creative-counsel-api.amy-yue-su.workers.dev/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
-        max_tokens: 2000,
-        system: SYSTEM_PROMPT,
-        messages: [{ role: 'user', content: userPrompt }]
-      })
+      try {
+        // Call Cloudflare Worker (which securely holds the API key)
+        const response = await fetch('https://creative-counsel-api.amy-yue-su.workers.dev/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: 'claude-haiku-4-5-20251001',
+            max_tokens: 2000,
+            system: SYSTEM_PROMPT,
+            messages: [{ role: 'user', content: userPrompt }]
+          })
+        });
+
+        if (!response.ok) throw new Error('API request failed.');
+
+        const data = await response.json();
+        const contractText = data.content[0].text;
+
+        // Display the contract
+        document.getElementById('contractOutput').textContent = contractText;
+        document.getElementById('loadingState').style.display = 'none';
+        document.getElementById('formSection').style.display = 'none';
+        document.getElementById('heroSection').style.display = 'none';
+        document.getElementById('outputSection').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      } catch (error) {
+        // Show error, restore form
+        document.getElementById('loadingState').style.display = 'none';
+        document.querySelector('.form-right form').style.display = 'flex';
+        document.getElementById('submitBtn').disabled = false;
+        const errorMsg = document.getElementById('errorMsg');
+        errorMsg.style.display = 'block';
+        errorMsg.textContent = 'Something went wrong generating your contract. Please check your connection and try again.';
+      }
     });
 
-    if (!response.ok) {
-      throw new Error('API request failed. Please check your API key.');
+    // ── Copy contract text to clipboard ──
+    function copyContract() {
+      const text = document.getElementById('contractOutput').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        btn.textContent = 'Copied';
+        setTimeout(() => btn.textContent = 'Copy text', 2000);
+      });
     }
 
-    const data = await response.json();
-    const contractText = data.content[0].text;
+    // ── Print / save as PDF ──
+    function printContract() {
+      window.print();
+    }
 
-    document.getElementById('contractOutput').textContent = contractText;
-    document.getElementById('loadingState').style.display = 'none';
-    document.getElementById('formSection').style.display = 'none';
-    document.getElementById('heroSection').style.display = 'none';
-    document.getElementById('outputSection').style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  } catch (error) {
-    document.getElementById('loadingState').style.display = 'none';
-    document.querySelector('.form-right form').style.display = 'flex';
-    document.getElementById('submitBtn').disabled = false;
-    const errorMsg = document.getElementById('errorMsg');
-    errorMsg.style.display = 'block';
-    errorMsg.textContent = 'Something went wrong generating your contract. Please check your connection and try again.';
-  }
-});
-
-function copyContract() {
-  const text = document.getElementById('contractOutput').textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = event.target;
-    btn.textContent = 'Copied';
-    setTimeout(() => btn.textContent = 'Copy text', 2000);
-  });
-}
-
-function printContract() {
-  window.print();
-}
-
-function startOver() {
-  document.getElementById('outputSection').style.display = 'none';
-  document.getElementById('formSection').style.display = 'block';
-  document.getElementById('heroSection').style.display = 'block';
-  document.querySelector('.form-right form').style.display = 'flex';
-  document.getElementById('submitBtn').disabled = false;
-  document.getElementById('contractForm').reset();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-</script>
+    // ── Reset to start a new contract ──
+    function startOver() {
+      document.getElementById('outputSection').style.display = 'none';
+      document.getElementById('formSection').style.display = 'block';
+      document.getElementById('heroSection').style.display = 'block';
+      document.querySelector('.form-right form').style.display = 'flex';
+      document.getElementById('submitBtn').disabled = false;
+      document.getElementById('contractForm').reset();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 
 </body>
 </html>
