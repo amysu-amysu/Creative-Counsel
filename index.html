@@ -7,7 +7,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-HDTQ4LG0D9');
 </script>
 
@@ -338,6 +337,44 @@
       cursor: pointer;
     }
 
+    /* Date toggle buttons */
+    .date-toggle {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .date-toggle button {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 2px;
+      border: 0.5px solid var(--stone);
+      background: transparent;
+      color: var(--warm-gray);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .date-toggle button.active {
+      background: var(--charcoal);
+      color: var(--cream);
+      border-color: var(--charcoal);
+    }
+
+    .date-range-fields {
+      display: none;
+      gap: 1rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .date-range-fields.visible {
+      display: grid;
+    }
+
     /* AI disclaimer shown just above the generate button */
     .ai-disclaimer {
       font-size: 0.72rem;
@@ -543,6 +580,7 @@
       .form-section { padding: 3rem 1.5rem; }
       .form-inner { grid-template-columns: 1fr; gap: 3rem; }
       .field-group { grid-template-columns: 1fr; }
+      .date-range-fields { grid-template-columns: 1fr; }
       .stats { gap: 2rem; }
       .output-section { padding: 3rem 1.5rem; }
       .contract-body { padding: 2rem; }
@@ -630,16 +668,19 @@
       <div class="form-right">
         <form id="contractForm">
 
+          <!-- Creative type — kept in alphabetical order -->
           <div class="field">
             <label for="creativeType">I am a</label>
             <select id="creativeType" required>
               <option value="">Select your creative type</option>
-              <option value="photographer">Photographer</option>
-              <option value="videographer">Videographer / Production Company</option>
-              <option value="musician">Musician / Performer</option>
+              <option value="artist or fashion designer">Artist / Fashion Designer</option>
+              <option value="creative director or stylist">Creative Director / Stylist</option>
+              <option value="film or commercial crew">Film / Commercial Crew</option>
+              <option value="graphic designer or illustrator">Graphic Designer / Illustrator</option>
               <option value="model">Model</option>
-              <option value="creative director">Creative Director / Stylist</option>
-              <option value="graphic designer">Graphic Designer / Illustrator</option>
+              <option value="musician or performer">Musician / Performer</option>
+              <option value="photographer">Photographer</option>
+              <option value="videographer">Videographer</option>
               <option value="other creative">Other Creative</option>
             </select>
           </div>
@@ -662,44 +703,60 @@
 
           <div class="field">
             <label for="projectType">Type of project</label>
-            <input type="text" id="projectType" placeholder="E.g. brand campaign shoot, live performance, music video" required />
+            <input type="text" id="projectType" placeholder="E.g., Brand campaign shoot, live performance, music video" required />
+          </div>
+
+          <!-- Date field with single / range toggle -->
+          <div class="field">
+            <label>Date of project</label>
+            <div class="date-toggle">
+              <button type="button" id="singleDayBtn" class="active" onclick="setDateMode('single')">Single day</button>
+              <button type="button" id="dateRangeBtn" onclick="setDateMode('range')">Date range</button>
+            </div>
+            <!-- Single date -->
+            <input type="date" id="projectDate" />
+            <!-- Date range (hidden by default) -->
+            <div class="date-range-fields" id="dateRangeFields">
+              <div class="field">
+                <label for="projectDateStart">Start date</label>
+                <input type="date" id="projectDateStart" />
+              </div>
+              <div class="field">
+                <label for="projectDateEnd">End date</label>
+                <input type="date" id="projectDateEnd" />
+              </div>
+            </div>
           </div>
 
           <div class="field-group">
-            <div class="field">
-              <label for="projectDate">Date of project</label>
-              <input type="date" id="projectDate" required />
-            </div>
             <div class="field">
               <label for="rate">Your rate</label>
-              <input type="text" id="rate" placeholder="E.g. $2,500 flat fee" required />
+              <input type="text" id="rate" placeholder="E.g., $2,500 flat fee" required />
+            </div>
+            <div class="field">
+              <label for="depositAmount">Deposit required</label>
+              <input type="text" id="depositAmount" placeholder="E.g., 50% upfront" />
             </div>
           </div>
 
-          <div class="field-group">
-            <div class="field">
-              <label for="depositAmount">Deposit required</label>
-              <input type="text" id="depositAmount" placeholder="E.g. 50% upfront" />
-            </div>
-            <div class="field">
-              <label for="paymentTerms">Payment terms</label>
-              <select id="paymentTerms">
-                <option value="due on receipt">Due on receipt</option>
-                <option value="Net 7">Net 7 (7 days after delivery)</option>
-                <option value="Net 14">Net 14 (14 days after delivery)</option>
-                <option value="Net 30">Net 30 (30 days after delivery)</option>
-              </select>
-            </div>
+          <div class="field">
+            <label for="paymentTerms">Payment terms</label>
+            <select id="paymentTerms">
+              <option value="due on receipt">Due on receipt</option>
+              <option value="Net 7">Net 7 (7 days after delivery)</option>
+              <option value="Net 14">Net 14 (14 days after delivery)</option>
+              <option value="Net 30">Net 30 (30 days after delivery)</option>
+            </select>
           </div>
 
           <div class="field">
             <label for="deliverables">Deliverables</label>
-            <textarea id="deliverables" placeholder="What are you delivering? E.g. 50 edited photos, 3-minute final video cut, 60-minute live set"></textarea>
+            <textarea id="deliverables" placeholder="E.g., 50 edited photos, 3-minute final video cut, 60-minute live set"></textarea>
           </div>
 
           <div class="field">
             <label for="specialTerms">Any special situations to protect against?</label>
-            <textarea id="specialTerms" placeholder="E.g. client showed up late before, need a cancellation fee, usage rights concern, exclusivity period"></textarea>
+            <textarea id="specialTerms" placeholder="E.g., Client showed up late before, need a cancellation fee, usage rights concern, exclusivity period"></textarea>
           </div>
 
           <div class="error-msg" id="errorMsg"></div>
@@ -758,13 +815,13 @@
   ============================================================ -->
   <script>
     // ── System prompt sent to Claude for every contract generation ──
-    const SYSTEM_PROMPT = `You are Creative Counsel, an AI assistant that generates professional freelance contracts for independent creative professionals including photographers, videographers, musicians, models, production companies, creative directors, and graphic designers.
+    const SYSTEM_PROMPT = `You are Creative Counsel, an AI assistant that generates professional freelance contracts for independent creative professionals including artists, fashion designers, creative directors, stylists, film and commercial crew, graphic designers, illustrators, models, musicians, performers, photographers, and videographers.
 
 You write clear, fair, and enforceable contract language that protects creatives from common industry problems: late payments, client no-shows, scope creep, late arrivals, unpaid work, and unclear usage rights.
 
 Your contracts should:
 - Be written in plain, professional English that both parties can easily understand — no intimidating legal jargon
-- Be tailored to the specific creative type and project (a model contract looks different from a musician contract)
+- Be tailored to the specific creative type and project
 - Be firm but fair — protecting the creative without being aggressive toward the client
 - Always include all of the following sections, adapted for the creative type:
   1. PARTIES — Full names of both parties, business name if provided, and date of agreement
@@ -776,15 +833,57 @@ Your contracts should:
   7. REVISIONS — How many rounds of revisions are included and what additional revisions cost
   8. IF PLANS CHANGE — Plain English explanation of what happens if either party cannot complete the project due to illness, emergency, or circumstances outside their control
   9. DISPUTES — How disagreements will be handled, governing law
-  10. SIGNATURES — Signature blocks for both parties with date lines
+  10. WHAT YOU ARE AGREEING TO — Before the signature block, include a plain English summary using simple bullet points listing what both parties are agreeing to. Write this in the simplest possible language, as if explaining the contract to someone who has never read one before. Keep each bullet to one clear sentence.
+  11. DISCLOSURE — After the summary and before signatures, include this exact paragraph verbatim: "This contract was generated by Creative Counsel, an AI-powered tool, and is intended as a starting point for independent creative professionals. It is not legal advice and does not substitute for consultation with a licensed attorney. This contract is best suited for use within the United States. Laws governing freelance work, overtime, intellectual property, and dispute resolution vary by state. Both parties are encouraged to review this agreement carefully and seek legal counsel for high-value or complex engagements. This contract becomes legally binding upon signature by named parties."
+  12. SIGNATURES — Signature blocks for both parties with date lines
 
 Additional guidance by creative type:
-- For MODELS: Include image approval rights, exclusivity terms if applicable, usage territory (local/national/worldwide), and duration of license
-- For MUSICIANS: Include set length, number of sets, sound check time, equipment responsibilities, and what happens if the event runs over
-- For PHOTOGRAPHERS/VIDEOGRAPHERS: Include delivery timeline, file format, storage/backup responsibility, and whether the creative may display work in their portfolio
-- For PRODUCTION COMPANIES: Include pre-production approval process, client responsibilities around timing and preparation, and late arrival penalties specific to time-sensitive shoots
+- For ARTISTS / FASHION DESIGNERS: Include description of the commissioned piece, materials, timeline for completion, approval checkpoints during the creation process, what happens if the client wants changes mid-creation, ownership of the original piece vs. reproduction rights, and payment structure tied to milestones if applicable.
+- For CREATIVE DIRECTORS / STYLISTS: Include scope of creative direction, who owns the creative concept, credit and attribution requirements, and deliverables such as mood boards, final direction documents, or on-set supervision hours.
+- For FILM / COMMERCIAL CREW: This work operates on a standard 12-hour shoot day. Include the following overtime language in plain English: "The agreed rate covers a standard 12-hour shoot day. Hours worked beyond 10 hours in a single day will be billed at 1.5 times the hourly rate derived from the day rate. Hours worked beyond 12 hours in a single day will be billed at 2 times the hourly rate. The client agrees to make every reasonable effort to wrap within the agreed shoot day. Overtime charges are the responsibility of the client and will be invoiced separately within 5 business days of the shoot." Also include a meal break requirement (typically every 6 hours) and a minimum 12-hour turnaround between shoot days.
+- For GRAPHIC DESIGNERS / ILLUSTRATORS: Include file format deliverables, font and asset licensing, what the client may and may not do with the final files, and whether source files are included.
+- For MODELS: Rate is typically a flat day rate regardless of wrap time. Include image approval rights, exclusivity terms if applicable, usage territory (local/national/worldwide), and duration of license.
+- For MUSICIANS / PERFORMERS: Include set length, number of sets, sound check time, equipment responsibilities, and what happens if the event runs over.
+- For PHOTOGRAPHERS: Include delivery timeline, file format, storage/backup responsibility, and whether the creative may display work in their portfolio.
+- For VIDEOGRAPHERS: Include delivery timeline, file format, number of revisions, music licensing responsibility, and whether the creative may display work in their portfolio. Rate is typically a flat day or project rate.
 
-Reference the specific details the user provides. Do not include any preamble or explanation — output only the contract itself. Format clearly with section headers in all caps and proper spacing. End with a professional signature block.`;
+Reference the specific details the user provides. Do not include any preamble or explanation — output only the contract itself. Format clearly with section headers in all caps and proper spacing.`;
+
+    // ── Date mode toggle: single day vs date range ──
+    let dateMode = 'single';
+
+    function setDateMode(mode) {
+      dateMode = mode;
+      const singleField = document.getElementById('projectDate');
+      const rangeFields = document.getElementById('dateRangeFields');
+      const singleBtn   = document.getElementById('singleDayBtn');
+      const rangeBtn    = document.getElementById('dateRangeBtn');
+
+      if (mode === 'single') {
+        singleField.style.display = 'block';
+        rangeFields.classList.remove('visible');
+        singleBtn.classList.add('active');
+        rangeBtn.classList.remove('active');
+      } else {
+        singleField.style.display = 'none';
+        rangeFields.classList.add('visible');
+        singleBtn.classList.remove('active');
+        rangeBtn.classList.add('active');
+      }
+    }
+
+    // ── Helper to get the project date string for the prompt ──
+    function getProjectDate() {
+      if (dateMode === 'single') {
+        return document.getElementById('projectDate').value || 'not specified';
+      } else {
+        const start = document.getElementById('projectDateStart').value;
+        const end   = document.getElementById('projectDateEnd').value;
+        if (start && end) return start + ' to ' + end;
+        if (start) return 'Starting ' + start;
+        return 'not specified';
+      }
+    }
 
     // ── Form submission handler ──
     document.getElementById('contractForm').addEventListener('submit', async function(e) {
@@ -796,7 +895,7 @@ Reference the specific details the user provides. Do not include any preamble or
       const businessName  = document.getElementById('businessName').value;
       const clientName    = document.getElementById('clientName').value;
       const projectType   = document.getElementById('projectType').value;
-      const projectDate   = document.getElementById('projectDate').value;
+      const projectDate   = getProjectDate();
       const rate          = document.getElementById('rate').value;
       const depositAmount = document.getElementById('depositAmount').value;
       const paymentTerms  = document.getElementById('paymentTerms').value;
@@ -833,7 +932,7 @@ Generate a complete, professional contract ready to send to the client.`;
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             model: 'claude-haiku-4-5-20251001',
-            max_tokens: 2000,
+            max_tokens: 2500,
             system: SYSTEM_PROMPT,
             messages: [{ role: 'user', content: userPrompt }]
           })
@@ -886,6 +985,7 @@ Generate a complete, professional contract ready to send to the client.`;
       document.querySelector('.form-right form').style.display = 'flex';
       document.getElementById('submitBtn').disabled = false;
       document.getElementById('contractForm').reset();
+      setDateMode('single'); // reset date toggle back to single day
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
