@@ -933,6 +933,12 @@ Special situations to protect against: ${specialTerms || 'none specified, includ
 
 Generate a complete, professional contract ready to send to the client.`;
 
+      // Send creative type selection event to Google Analytics
+      gtag('event', 'generate_contract', {
+        'creative_type': creativeType,
+        'project_type': projectType
+      });
+
       // Show loading state, hide form
       document.getElementById('submitBtn').disabled = true;
       document.getElementById('errorMsg').style.display = 'none';
