@@ -696,6 +696,11 @@
             </div>
           </div>
 
+            <div class="field">
+            <label for="userEmail">Email</label>
+            <input type="email" id="userEmail" placeholder="E.g., jordan@email.com" />
+          </div>
+
           <div class="field">
             <label for="clientName">Client name</label>
             <input type="text" id="clientName" placeholder="Brand or person you are working with" required />
@@ -760,6 +765,12 @@
           </div>
 
           <div class="error-msg" id="errorMsg"></div>
+
+           <!-- Optional email checkbox -->
+          <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--warm-gray); font-weight:300; cursor:pointer;">
+            <input type="checkbox" id="sendCopyCheck" checked style="width:auto; margin:0;" />
+            Send a copy of my contract to my email
+          </label>
 
           <!-- AI disclaimer shown just above the generate button -->
           <p class="ai-disclaimer">Contracts are AI-generated. Creative Counsel is not a law firm and this is not legal advice.</p>
@@ -938,6 +949,21 @@ Generate a complete, professional contract ready to send to the client.`;
         'creative_type': creativeType,
         'project_type': projectType
       });
+
+     // If user opted in and provided email, send to Formspree
+      const userEmail = document.getElementById('userEmail').value;
+      const sendCopy = document.getElementById('sendCopyCheck').checked;
+      if (sendCopy && userEmail) {
+        fetch('https://formspree.io/f/meennnwn', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: yourName,
+            email: userEmail,
+            creative_type: creativeType
+          })
+        });
+      }
 
       // Show loading state, hide form
       document.getElementById('submitBtn').disabled = true;
